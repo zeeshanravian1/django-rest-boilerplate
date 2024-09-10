@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "django-rest-boilerplate"
+version = "0.1.0"
+description = "Django REST Framework Boilerplate"
+authors = ["Zeeshan Asim <zeeshanravian1@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+djangorestframework = "^3.15.2"
+djangorestframework-stubs = "^3.15.0"
+django-environ = "^0.11.2"
+django-filter = "^24.3"
+django-debug-toolbar = "^4.4.6"
+psycopg2-binary = "^2.9.9"
+pygments = "^2.18.0"
+types-pygments = "^2.18.0.20240506"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.8.0"
+pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
+ipykernel = "^6.29.5"
+jupyter = "^1.1.1"
+radon = "^6.0.1"
+mypy = "^1.11.2"
+python-lsp-server = {extras = ["all"], version = "^1.12.0"}
+black = "^24.8.0"
+pyupgrade = "^3.17.0"
+ruff = "^0.6.4"
+skjold = "^0.6.2"
+httpie = "^3.2.3"
+logfire = "^0.52.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.skjold]
+sources = ["github", "pyup", "gemnasium"]  # Sources to check against.
+report_only = false                        # Exit with non-zero exit code on findings.
+report_format = 'cli'                      # Output findings as `json`. Default is 'cli'.
+cache_dir = '.skjold_cache'                # Cache location (default: `~/.skjold/cache`).
+cache_expires = 86400                      # Cache max. age.
+ignore_file = '.skjoldignore'              # Ignorefile location (default `.skjoldignore`).
+verbose = true                             # Be verbose.
